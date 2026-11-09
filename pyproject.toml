@@ -1,0 +1,21 @@
+[project]
+name = "framecraft-drama-agent"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1", "uvicorn>=0.30,<1", "sqlalchemy>=2,<3",
+  "pydantic-settings>=2,<3", "python-multipart>=0.0.20", "openai>=1.80,<3",
+  "pillow>=11,<13", "imageio-ffmpeg>=0.6,<1", "scenedetect>=0.6,<1",
+  "opencv-python>=4.10,<5", "httpx>=0.28,<1", "pymysql[rsa]>=1.1,<2"
+]
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+[tool.ruff]
+line-length = 110
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+[tool.setuptools.packages.find]
+include = ["backend*", "worker*"]
